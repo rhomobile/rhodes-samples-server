@@ -119,7 +119,8 @@ class Metadata < SourceAdapter
                 }
 
     @detail_view = { :title => 'Detail View',
-                     :type => 'view',
+                     :type => 'iuipanel',
+                     :left_btn_is_back => true,
                      :children => [@panel1, @panel2, @table1, @link, @maplink] }
 
 
@@ -161,6 +162,11 @@ class Metadata < SourceAdapter
               :children => [@ferror,@fname,@fage,@fyear,@fsubmit]
             }
 
-    {'address' => @detail_view, 'validation' => @form}.to_json
+    @form_view = { :title => 'Form View',
+                     :type => 'iuipanel',
+                     :left_btn_is_back => true,
+                     :children => [@form] }
+
+    {'address' => @detail_view, 'validation' => @form_view}.to_json
   end
 end
